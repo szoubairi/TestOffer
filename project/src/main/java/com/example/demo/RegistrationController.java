@@ -11,12 +11,10 @@ public class RegistrationController {
     
     @Autowired UsersRepository usersRepo;
     @Autowired RegistrationConsumer registrationCons;
-    @Autowired RegistrationService registrationService;
 
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable String id){
         User user = usersRepo.getById(id);
-        registrationService.checkNull(user);
         return user;
     }
 

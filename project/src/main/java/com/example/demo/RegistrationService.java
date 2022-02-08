@@ -15,10 +15,11 @@ public class RegistrationService {
     private Logger log = LoggerFactory.getLogger(RegistrationConsumer.class);
 
     public void checkNull(User user){
-        if(user == null)
+        if(user == null){
+            log.info("User not found ");
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entity not found");
+        }
     }
-
     public boolean validUser(User user){
         if(user.getName() == null || user.getBirth() == null || user.getCountry() == null){
             log.info("Please indicate all fields (Name - Country - BirthDate)!");
