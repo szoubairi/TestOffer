@@ -30,9 +30,8 @@ public class RegistrationService {
             return false;
         }
         String country = user.getCountry();
-        LocalDate birth = user.getBirth();
-        LocalDateTime date = birth.atStartOfDay();
-        return country.equals("France") && ChronoUnit.YEARS.between(date, LocalDateTime.now()) >= 18;
+        LocalDateTime birth = user.getBirth().atStartOfDay();
+        return country.equals("France") && ChronoUnit.YEARS.between(birth, LocalDateTime.now()) >= 18;
     }
 
     public void register(User user) {
