@@ -2,7 +2,7 @@
 
 ## Documentation :  
 
-### 🚀 Build : 
+### 🚀 Build (Linux) : 
 
 ```bash
 mvn clean  
