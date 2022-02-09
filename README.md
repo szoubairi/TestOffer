@@ -2,13 +2,18 @@
 
 ## Documentation :  
 
-### 🚀 Build (Linux) : 
+### 🚀 Build : 
 
 ```bash
 mvn clean  
 mvn compile  
 mvn package  
 java -jar target/demo-0.0.1-SNAPSHOT.jar
+```  
+ou 
+
+```bash 
+./mvnw springboot:run
 ```
 
 ### 📚 Use of the API :   
