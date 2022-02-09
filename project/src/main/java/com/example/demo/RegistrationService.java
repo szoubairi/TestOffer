@@ -3,20 +3,24 @@ package com.example.demo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class RegistrationService {
-    private Logger log = LoggerFactory.getLogger(RegistrationConsumer.class);
+    private Logger log = LoggerFactory.getLogger(RegistrationService.class);
+    @Autowired UsersRepository usersRepo;    
 
-    public void checkNull(User user){
-        if(user == null){
-            log.info("User not found ");
+
+    public void checkNull(Optional<User> user){
+        if(user.isEmpty()){
+            log.info("User not found! ");
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entity not found");
         }
     }
@@ -29,6 +33,17 @@ public class RegistrationService {
         LocalDate birth = user.getBirth();
         LocalDateTime date = birth.atStartOfDay();
         return country.equals("France") && ChronoUnit.YEARS.between(date, LocalDateTime.now()) >= 18;
+    }
+
+    public void register(User user) {
+        log.info("Receiving registration " + user.toString());
+        if(validUser(user)){
+            usersRepo.save(user);
+            log.info("User added successfully!");
+        }
+        else{
+            log.info("User must be an adult French!");
+        }
     }
     
 }
