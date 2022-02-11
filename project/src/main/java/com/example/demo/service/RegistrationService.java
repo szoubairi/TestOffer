@@ -27,7 +27,7 @@ public class RegistrationService {
     }
 
     public UserDTO getUserById(String id){
-        UserDTO user = userMapper.userToUserDTO(usersRepo.findById(id).get());
+        UserDTO user = userMapper.userToUserDTO(usersRepo.findById(id).orElse(null));
         checkNull(user);
         return user;    
     }

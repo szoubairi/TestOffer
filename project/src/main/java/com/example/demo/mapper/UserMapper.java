@@ -3,32 +3,20 @@ package com.example.demo.mapper;
 import com.example.demo.model.UserDTO;
 import com.example.demo.user.User;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
     
+    @Autowired ModelMapper modelMapper;
+
     public UserDTO userToUserDTO(User user){
-        if(user == null)
-            return null;
-        UserDTO userDTO = new UserDTO();
-        userDTO.setName(user.getName());
-        userDTO.setBirth(user.getBirth());
-        userDTO.setCountry(user.getCountry());
-        userDTO.setGender(user.getGender());
-        userDTO.setPhone(user.getPhone());
-        return userDTO;
+        return user == null ? null : modelMapper.map(user, UserDTO.class);
     }
 
     public User userDTOToUser(UserDTO userDTO){
-        if(userDTO == null)
-            return null;
-        User user = new User();
-        user.setName(userDTO.getName());
-        user.setBirth(userDTO.getBirth());
-        user.setCountry(userDTO.getCountry());
-        user.setGender(userDTO.getGender());
-        user.setPhone(userDTO.getPhone());
-        return user;
+        return userDTO == null ? null: modelMapper.map(userDTO, User.class);
     }
 }
