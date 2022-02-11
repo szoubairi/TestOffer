@@ -1,23 +1,19 @@
-package com.example.demo;
+package com.example.demo.model;
+
 import java.time.LocalDate;
+import java.time.Period;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class UserDTO {
 
-
-@Entity
-public class User {
-
-    @Id
     private String name;
     private LocalDate birth;
     private String country;
     private String phone;
     private String gender;
+    private int age;
 
-    
 
-    public User(String name, LocalDate birth, String country, String phone, String gender) {
+    public UserDTO(String name, LocalDate birth, String country, String phone, String gender) {
         this.name = name;
         this.birth = birth;
         this.country = country;
@@ -25,7 +21,7 @@ public class User {
         this.gender = gender;
     }
     
-    public User() {
+    public UserDTO() {
     }
 
     public String getName() {
@@ -59,11 +55,19 @@ public class User {
         this.gender = gender;
     }
 
+    public int getAge() {
+        this.age = Period.between(this.birth, LocalDate.now()).getYears();
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "User [birth=" + birth + ", country=" + country + ", gender=" + gender + ", name=" + name + ", phone="
                 + phone + "]";
-    }  
-    
+    }    
     
 }

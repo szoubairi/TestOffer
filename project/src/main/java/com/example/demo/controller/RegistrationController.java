@@ -1,6 +1,7 @@
-package com.example.demo;
-import java.util.Optional;
+package com.example.demo.controller;
 
+import com.example.demo.model.UserDTO;
+import com.example.demo.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,18 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RegistrationController {
     
-    @Autowired UsersRepository usersRepo;
     @Autowired RegistrationService registrationService;
 
     @GetMapping("/users/{id}")
-    public Optional<User> getUser(@PathVariable String id){
-        Optional<User> user = usersRepo.findById(id);
-        registrationService.checkNull(user);
-        return user;
+    public UserDTO getUser(@PathVariable String id){
+        return registrationService.getUserById(id);
+
     }
 
     @PostMapping
-    public void postUser(@RequestBody User user){
+    public void postUser(@RequestBody UserDTO user){
         registrationService.register(user);
     }
 }
