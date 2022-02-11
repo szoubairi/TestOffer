@@ -35,4 +35,6 @@ public class ServiceTest {
         assertEquals(false, registrationService.validUser(userDTO3));
         assertEquals(false, registrationService.validUser(userDTO4));
     }
+
+
 }
