@@ -4,16 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-
 import java.time.LocalDate;
 import java.util.Optional;
-
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.UserDTO;
 import com.example.demo.repository.UsersRepository;
 import com.example.demo.service.RegistrationService;
 import com.example.demo.user.User;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

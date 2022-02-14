@@ -2,15 +2,12 @@ package com.example.demo.controllerTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
-
 import java.time.LocalDate;
-
 import com.example.demo.controller.RegistrationController;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.UserDTO;
 import com.example.demo.repository.UsersRepository;
 import com.example.demo.service.RegistrationService;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

@@ -3,10 +3,15 @@ package com.example.demo.model;
 import java.time.LocalDate;
 import java.time.Period;
 
+import javax.validation.constraints.NotBlank;
+
 public class UserDTO {
 
+    @NotBlank
     private String name;
+    @NotBlank
     private LocalDate birth;
+    @NotBlank
     private String country;
     private String phone;
     private String gender;

@@ -1,15 +1,11 @@
 package com.example.demo.mapperTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.time.LocalDate;
-
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.UserDTO;
 import com.example.demo.user.User;
-
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -38,7 +34,6 @@ public class MapperTest {
         assertEquals(user.getBirth(), userDTO.getBirth());
         assertEquals(user.getCountry(), userDTO.getCountry());
         assertEquals(user.getGender(), userDTO.getGender());
-
     }
     
 }
