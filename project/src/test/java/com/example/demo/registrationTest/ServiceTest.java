@@ -25,9 +25,13 @@ import org.springframework.web.server.ResponseStatusException;
 @SpringBootTest
 public class ServiceTest {
 
-    @Mock private UsersRepository usersRepo;
-    @Mock private UserMapper userMapper;
-    @Spy @InjectMocks private RegistrationService registrationService;
+    @Mock 
+    private UsersRepository usersRepo;
+    @Mock 
+    private UserMapper userMapper;
+    @Spy 
+    @InjectMocks
+     private RegistrationService registrationService;
             
     @Test
     public void checkNullTest() {

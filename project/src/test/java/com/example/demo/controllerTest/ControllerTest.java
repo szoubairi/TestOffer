@@ -21,11 +21,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class ControllerTest {
 
-    @Mock private UsersRepository usersRepo;
-    @Mock private UserMapper userMapper;
-    @Mock private RegistrationService registrationService;
-    
-    @InjectMocks RegistrationController registrationController;
+    @Mock 
+    private UsersRepository usersRepo;
+    @Mock 
+    private UserMapper userMapper;
+    @Mock 
+    private RegistrationService registrationService;
+    @InjectMocks 
+    private RegistrationController registrationController;
 
     @Test
     public void getUserTest() {

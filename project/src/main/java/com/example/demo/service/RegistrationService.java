@@ -15,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class RegistrationService {
+
     private Logger log = LoggerFactory.getLogger(RegistrationService.class);
     @Autowired UsersRepository usersRepo;    
     @Autowired UserMapper userMapper;
