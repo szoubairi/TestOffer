@@ -1,76 +1,36 @@
 package com.example.demo.user;
 import java.time.LocalDate;
-import java.time.Period;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
 @Table
+@Getter 
+@Setter 
+@NoArgsConstructor 
+@AllArgsConstructor
 public class User {
 
     @Id
+    @Column(name = "NAME", nullable = false)
     private String name;
+    @Column(name = "BIRTH", nullable = false)
     private LocalDate birth;
+    @Column(name = "COUNTRY", nullable = false)
     private String country;
+    @Column(name = "PHONE_NUMBER")
     private String phone;
+    @Column(name = "GENDER")
     private String gender;
-    @Transient
-    private int age;
-
-
-    public User(String name, LocalDate birth, String country, String phone, String gender) {
-        this.name = name;
-        this.birth = birth;
-        this.country = country;
-        this.phone = phone;
-        this.gender = gender;
-    }
-    
-    public User() {
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public LocalDate getBirth() {
-        return birth;
-    }
-    public void setBirth(LocalDate birth) {
-        this.birth = birth;
-    }
-    public String getCountry() {
-        return country;
-    }
-    public void setCountry(String country) {
-        this.country = country;
-    }
-    public String getPhone() {
-        return phone;
-    }
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    public String getGender() {
-        return gender;
-    }
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public int getAge() {
-        return Period.between(this.birth, LocalDate.now()).getYears();
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     @Override
     public String toString() {

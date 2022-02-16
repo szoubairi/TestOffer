@@ -1,78 +1,42 @@
 package com.example.demo.model;
 
 import java.time.LocalDate;
-import java.time.Period;
-
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
+import com.example.demo.validation.BirthDate;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO {
 
-    @NotBlank
+    @Schema(description = "User name", example = "Saad")
+    @NotBlank(message = "Name may not be empty")
     private String name;
-    @NotBlank
+
+    @Schema(description = "Date of birth, yyyy-mm-dd", example = "2000-04-05")
+    @BirthDate
     private LocalDate birth;
-    @NotBlank
+
+    @Schema(description = "Country, Only France is accepted", example = "France")
+    @Pattern(regexp = "France", message = "Only French people are accepted")
     private String country;
+
+    @Schema(description = "French phone number. Optional", nullable = true, example = "0655665566")
     private String phone;
+
+    @Schema(description = "Gender, f for female, m for male. Optional", nullable = true, example = "f")
     private String gender;
-    private int age;
-
-
-    public UserDTO(String name, LocalDate birth, String country, String phone, String gender) {
-        this.name = name;
-        this.birth = birth;
-        this.country = country;
-        this.phone = phone;
-        this.gender = gender;
-    }
     
-    public UserDTO() {
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public LocalDate getBirth() {
-        return birth;
-    }
-    public void setBirth(LocalDate birth) {
-        this.birth = birth;
-    }
-    public String getCountry() {
-        return country;
-    }
-    public void setCountry(String country) {
-        this.country = country;
-    }
-    public String getPhone() {
-        return phone;
-    }
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    public String getGender() {
-        return gender;
-    }
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public int getAge() {
-        this.age = Period.between(this.birth, LocalDate.now()).getYears();
-        return this.age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "User [birth=" + birth + ", country=" + country + ", gender=" + gender + ", name=" + name + ", phone="
-                + phone + "]";
-    }    
+//@Override
+//    public String toString() {
+//        return "User [birth=" + birth + ", country=" + country + ", gender=" + gender + ", name=" + name + ", phone="
+//                + phone + "]";
+//    }    
     
 }

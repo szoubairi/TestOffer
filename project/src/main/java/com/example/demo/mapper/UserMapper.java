@@ -11,11 +11,13 @@ public class UserMapper {
     
     @Autowired ModelMapper modelMapper;
 
-    public UserDTO userToUserDTO(User user){
+    public UserDTO userToUserDTO(User user)
+    {
         return user == null ? null : modelMapper.map(user, UserDTO.class);
     }
 
-    public User userDTOToUser(UserDTO userDTO){
+    public User userDTOToUser(UserDTO userDTO)
+    {
         return userDTO == null ? null: modelMapper.map(userDTO, User.class);
     }
 }
