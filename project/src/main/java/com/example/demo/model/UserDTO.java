@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import com.example.demo.validation.BirthDate;
@@ -20,10 +21,12 @@ public class UserDTO {
     private String name;
 
     @Schema(description = "Date of birth, yyyy-mm-dd", example = "2000-04-05")
+    @NotNull
     @BirthDate
     private LocalDate birth;
 
     @Schema(description = "Country, Only France is accepted", example = "France")
+    @NotNull
     @Pattern(regexp = "France", message = "Only French people are accepted")
     private String country;
 
@@ -32,11 +35,4 @@ public class UserDTO {
 
     @Schema(description = "Gender, f for female, m for male. Optional", nullable = true, example = "f")
     private String gender;
-    
-//@Override
-//    public String toString() {
-//        return "User [birth=" + birth + ", country=" + country + ", gender=" + gender + ", name=" + name + ", phone="
-//                + phone + "]";
-//    }    
-    
 }

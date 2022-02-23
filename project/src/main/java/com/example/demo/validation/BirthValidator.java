@@ -11,7 +11,7 @@ public class BirthValidator implements ConstraintValidator<BirthDate, LocalDate>
 
     @Override
     public boolean isValid(LocalDate value, ConstraintValidatorContext context) {
-        return ChronoUnit.YEARS.between(value, LocalDateTime.now()) >= 18;
+        return value != null && ChronoUnit.YEARS.between(value, LocalDateTime.now()) >= 18;
     }
 
 }
