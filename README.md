@@ -38,4 +38,7 @@ The API exposes two services :
 
 ### ✔️ Tests (Postman collection):
   ![alt text](postmanCollection.png)
+  
+### Lien Swagger : 
+  ```https://localhost:8080/swagger-ui.html```
 
